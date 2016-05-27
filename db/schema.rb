@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527042645) do
+ActiveRecord::Schema.define(version: 20160527045247) do
 
   create_table "competitors", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "week_1s", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "competitor_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "week_1s", ["competitor_id"], name: "index_week_1s_on_competitor_id"
 
 end
